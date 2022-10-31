@@ -5,7 +5,7 @@ import Input from "./Input";
 
 const TodoForn = () => {
   return (
-    <div className="border border-gray-200 p-4 ">
+    <div className="border border-gray-200 p-4  mt-4">
       <H3 title="Create a todo" />
       <div className="mt-4">
         <Input />

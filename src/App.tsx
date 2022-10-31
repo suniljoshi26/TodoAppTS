@@ -13,9 +13,12 @@ function App() {
     <div>
       {" "}
       <NavBar />
-      <H1 title=" Things to get done"></H1>
-      <H3 title="Things to do"></H3>
-      <TodoForn />
+      <div className="px-32">
+        <H1 title=" Things to get done"></H1>
+        <H3 title="Things to do"></H3>
+        <TodoForn />
+        <H3 title="Things to done"></H3>
+      </div>
     </div>
   );
 }
