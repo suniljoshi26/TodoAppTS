@@ -8,7 +8,7 @@ export const NavBar = () => {
           <a href="https://flowbite.com/" className="flex items-center">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiU4IjSMOl-iE34Ikjr1TfaCHSWOFXr4ahHA&usqp=CAU"
-              className="mr-3 h-10 sm:h-16"
+              className="mr-3 h-10 sm:h-20 "
               alt="todo logo"
             />
           </a>
