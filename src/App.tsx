@@ -2,24 +2,21 @@ import { FC, useState } from "react";
 import Button from "./Button";
 import H1 from "./H1";
 import H3 from "./H3";
-import Input from "./Input";
+import { ITodo } from "./interfaces";
 import { NavBar } from "./NavBar";
 import TodoForn from "./TodoForn";
 import TodoRow from "./TodoRow";
-import { It } from "./type";
 
-
-function App() {
+const App: FC = () => {
   const [formVisable, setFormVisable] = useState(false);
-  const [todo, setTodo] = useState<It[]>([]);
-  console.log("todo", todo);
+  const [todoList, setTodo] = useState<ITodo[]>([]);
 
+  console.log("todo", todoList);
 
-  const addTodo:FC<It> = (props):void => {
-    {taskName:props.task}
-    const new =[...todo,task]
-
-    setTodo(new);
+  const addTodo = (task: any) => {
+    const t = [...todoList, task];
+    console.log("yty", t);
+    setTodo(t);
   };
   const handleShowForm = () => {
     setFormVisable(true);
@@ -35,8 +32,8 @@ function App() {
       <div className="px-32">
         <H1 title=" Things to get done"></H1>
         <H3 title="Things to do"></H3>
-        {todo.map((todo:any) => (
-          <TodoRow>{todo}</TodoRow>
+        {todoList.map((todo: ITodo, key: number) => (
+          <TodoRow key={key} todo={todo} />
         ))}
         {!formVisable && (
           <Button them="highlight" onClick={handleShowForm}>
@@ -50,6 +47,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

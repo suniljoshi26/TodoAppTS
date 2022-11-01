@@ -5,7 +5,6 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<ButtonProps> = ({ them, className, ...rest }) => {
-  console.log(them);
   let themClass =
     " text-white rounded-md bg-yellow-500 border-transparent  hover:bg-yellow-600 ";
   let radiusClass = "rounded-md";

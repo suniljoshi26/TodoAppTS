@@ -4,11 +4,11 @@ import H3 from "./H3";
 import Input from "./Input";
 
 const TodoForn = (props: any) => {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState<string>("");
 
   const handleInputChange = (event: any) => {
-    let a = event.target.value;
-    setInput(a);
+    event.preventDefault();
+    setInput(event.target.value);
   };
 
   const handleSave = () => {

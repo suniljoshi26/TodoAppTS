@@ -1,11 +1,14 @@
 import React, { FC } from "react";
+import { ITodo } from "./interfaces";
 type TodoProps = {
-  children: String;
+  todo: ITodo;
+  key: number;
 };
-const TodoRow: FC<TodoProps> = ({ children }) => {
+const TodoRow: FC<TodoProps> = ({ todo, key }) => {
+  console.log("JDFDDF", todo);
   return (
-    <div>
-      <h3>{children}</h3>
+    <div key={key}>
+      <h3>{todo}</h3>
     </div>
   );
 };
