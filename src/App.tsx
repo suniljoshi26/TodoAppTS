@@ -14,8 +14,8 @@ const App: FC = () => {
 
   console.log("todo", todoList);
 
-  const addTodo = (task: any) => {
-    const t = [...todoList, task];
+  const addTodo = (todo: any) => {
+    const t = [...todoList, todo];
     console.log("yty", t);
     setTodoList(t);
   };
@@ -40,6 +40,13 @@ const App: FC = () => {
     setDoneList([...doneList, todo]);
     console.log("sdasds", newTodo.length);
   };
+  const todoDelete: FC = (todo: ITodo, done: boolean) => {
+    if (done) {
+      const newDoneList = doneList.filter((task) => task !== todo);
+      setDoneList(newDoneList);
+    }
+  };
+
   return (
     <div>
       {" "}
@@ -53,7 +60,7 @@ const App: FC = () => {
             todo={todo}
             done={false}
             onStatusChange={markAsDone}
-            // onDelete={todoDelete}
+            onDelete={todoDelete}
           />
         ))}
         {!formVisable && (
@@ -71,7 +78,7 @@ const App: FC = () => {
             todo={todo}
             done={true}
             onStatusChange={markAsNotDone}
-            // onDelete={todoDelete}
+            onDelete={todoDelete}
           />
         ))}
       </div>
