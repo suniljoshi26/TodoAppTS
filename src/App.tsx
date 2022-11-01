@@ -9,14 +9,15 @@ import TodoRow from "./TodoRow";
 
 const App: FC = () => {
   const [formVisable, setFormVisable] = useState(false);
-  const [todoList, setTodo] = useState<ITodo[]>([]);
+  const [todoList, setTodoList] = useState<ITodo[]>([]);
+  const [doneList, setDoneList] = useState<ITodo[]>([]);
 
   console.log("todo", todoList);
 
   const addTodo = (task: any) => {
     const t = [...todoList, task];
     console.log("yty", t);
-    setTodo(t);
+    setTodoList(t);
   };
   const handleShowForm = () => {
     setFormVisable(true);
@@ -24,7 +25,21 @@ const App: FC = () => {
   const handleHideForm = () => {
     setFormVisable(false);
   };
+  const markAsNotDone = (todo: ITodo) => {
+    const newDone = doneList.filter((task) => task !== todo);
 
+    setDoneList(newDone);
+    setTodoList([...todoList, todo]);
+  };
+  const markAsDone = (todo: ITodo) => {
+    const newTodo = todoList.filter((task) => task !== todo);
+
+    console.log("new todo", newTodo);
+    setTodoList(newTodo);
+
+    setDoneList([...doneList, todo]);
+    console.log("sdasds", newTodo.length);
+  };
   return (
     <div>
       {" "}
@@ -33,7 +48,13 @@ const App: FC = () => {
         <H1 title=" Things to get done"></H1>
         <H3 title="Things to do"></H3>
         {todoList.map((todo: ITodo, key: number) => (
-          <TodoRow key={key} todo={todo} />
+          <TodoRow
+            key={key}
+            todo={todo}
+            done={false}
+            onStatusChange={markAsDone}
+            // onDelete={todoDelete}
+          />
         ))}
         {!formVisable && (
           <Button them="highlight" onClick={handleShowForm}>
@@ -44,6 +65,15 @@ const App: FC = () => {
           <TodoForn handleHideForm={handleHideForm} addTodo={addTodo} />
         )}
         <H3 title="Things to done"></H3>
+        {doneList.map((todo: ITodo, key: number) => (
+          <TodoRow
+            key={key}
+            todo={todo}
+            done={true}
+            onStatusChange={markAsNotDone}
+            // onDelete={todoDelete}
+          />
+        ))}
       </div>
     </div>
   );
