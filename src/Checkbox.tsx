@@ -4,6 +4,7 @@ const Checkbox: FC<CheckboxP> = (props) => {
   return (
     <div>
       <input
+        className="w-5 h-5"
         type="checkbox"
         checked={props.checked}
         onChange={props.onChange}

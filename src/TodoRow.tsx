@@ -27,13 +27,16 @@ const TodoRow: FC<TodoProps> = ({
   return (
     <div
       key={key}
-      className="flex justify-between space-x-2 items-center p-2 border  rounded-md shadow-md w-72"
+      className="flex justify-between space-x-2 items-center p-1 border  rounded-md shadow-md w-72"
     >
-      <div className=" flex items-center space-x-2">
+      <div className=" flex flex-row items-center space-x-2">
         <Checkbox checked={done} onChange={onChackBoxChange} />
-        <h3 className=" text-xl items-center mb-1">{todo}</h3>
+        <h3 className=" text-2xl items-center mb-2">{todo}</h3>
       </div>
-      <TiDeleteOutline onClick={onDeleteTodo} className="text-2xl " />
+      <TiDeleteOutline
+        onClick={onDeleteTodo}
+        className="text-2xl  cursor-pointer"
+      />
     </div>
   );
 };
