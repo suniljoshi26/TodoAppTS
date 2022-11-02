@@ -59,7 +59,7 @@ const App: FC = () => {
   return (
     <div className=" ">
       {" "}
-      <NavBar />
+      <NavBar todoList={todoList} doneList={doneList} />
       <div className="px-32">
         <H1 title=" Things to get done"></H1>
         <H3 title="Things to do"></H3>
