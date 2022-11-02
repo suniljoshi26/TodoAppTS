@@ -27,7 +27,7 @@ const TodoRow: FC<TodoProps> = ({
   return (
     <div
       key={key}
-      className="flex justify-between space-x-2 items-center p-1 border  rounded-md shadow-md w-72"
+      className="flex justify-between space-x-2 items-center p-1 border mt-2 rounded-md shadow-md w-72"
     >
       <div className=" flex flex-row items-center space-x-2">
         <Checkbox checked={done} onChange={onChackBoxChange} />

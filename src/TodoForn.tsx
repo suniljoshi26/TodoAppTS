@@ -22,7 +22,9 @@ const TodoForn = (props: any) => {
         <Input value={input} onChange={handleInputChange} />
       </div>
       <div className="space-x-6 mt-4 ">
-        <Button onClick={handleSave}>Save</Button>
+        <Button onClick={handleSave} disabled={input.trim().length == 0}>
+          Save
+        </Button>
         <Button them="secondary" onClick={props.handleHideForm}>
           Cancle
         </Button>
