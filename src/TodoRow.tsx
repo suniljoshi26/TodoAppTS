@@ -25,10 +25,15 @@ const TodoRow: FC<TodoProps> = ({
     onDelete(todo, done);
   };
   return (
-    <div key={key} className="flex space-x-2 items-center">
-      <Checkbox checked={done} onChange={onChackBoxChange} />
-      <h3>{todo}</h3>
-      <TiDeleteOutline onClick={onDeleteTodo} />
+    <div
+      key={key}
+      className="flex justify-between space-x-2 items-center p-2 border  rounded-md shadow-md w-72"
+    >
+      <div className=" flex items-center space-x-2">
+        <Checkbox checked={done} onChange={onChackBoxChange} />
+        <h3 className=" text-xl items-center mb-1">{todo}</h3>
+      </div>
+      <TiDeleteOutline onClick={onDeleteTodo} className="text-2xl " />
     </div>
   );
 };
