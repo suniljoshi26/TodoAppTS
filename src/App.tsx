@@ -8,9 +8,13 @@ import TodoForn from "./TodoForn";
 import TodoRow from "./TodoRow";
 
 const App: FC = () => {
+  const a = JSON.parse(localStorage.getItem("todoList") || "[]");
+  const b = JSON.parse(localStorage.getItem("doneList") || "[]");
   const [formVisable, setFormVisable] = useState(false);
-  const [todoList, setTodoList] = useState<ITodo[]>([]);
-  const [doneList, setDoneList] = useState<ITodo[]>([]);
+  const [todoList, setTodoList] = useState<ITodo[]>(a);
+  const [doneList, setDoneList] = useState<ITodo[]>(b);
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+  localStorage.setItem("doneList", JSON.stringify(doneList));
 
   console.log("todo", todoList);
 
@@ -40,7 +44,7 @@ const App: FC = () => {
     setDoneList([...doneList, todo]);
     console.log("sdasds", newTodo.length);
   };
-  const todoDelete: FC = (todo: ITodo, done: boolean) => {
+  const todoDelete = (todo: ITodo, done: boolean) => {
     if (done) {
       const newDoneList = doneList.filter((task) => task !== todo);
       setDoneList(newDoneList);
