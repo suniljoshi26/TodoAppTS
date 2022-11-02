@@ -4,6 +4,7 @@ import H1 from "./H1";
 import H3 from "./H3";
 
 import { ITodo } from "./interfaces";
+import Msg from "./Msg";
 import { NavBar } from "./NavBar";
 import TodoForn from "./TodoForn";
 import TodoRow from "./TodoRow";
@@ -60,9 +61,10 @@ const App: FC = () => {
     <div className=" ">
       {" "}
       <NavBar todoList={todoList} doneList={doneList} />
-      <div className="px-32">
+      <div className=" px-10 sm:px-32">
         <H1 title=" Things to get done"></H1>
         <H3 title="Things to do"></H3>
+        {todoList.length === 0 && <Msg />}
         {todoList.map((todo, key: number) => (
           <TodoRow
             key={key}
@@ -81,6 +83,7 @@ const App: FC = () => {
           <TodoForn handleHideForm={handleHideForm} addTodo={addTodo} />
         )}
         <H3 title="Things to done"></H3>
+        {doneList.length === 0 && <Msg />}
         {doneList.map((todo: ITodo, key: number) => (
           <TodoRow
             key={key}
