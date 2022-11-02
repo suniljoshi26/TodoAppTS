@@ -26,7 +26,7 @@ const TodoForn = (props: any) => {
           Save
         </Button>
         <Button them="secondary" onClick={props.handleHideForm}>
-          Cancle
+          Cancel
         </Button>
       </div>
     </div>
