@@ -57,7 +57,7 @@ const App: FC = () => {
   };
 
   return (
-    <div>
+    <div className=" ">
       {" "}
       <NavBar />
       <div className="px-32">
