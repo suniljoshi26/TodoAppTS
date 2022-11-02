@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import Button from "./Button";
 import H1 from "./H1";
 import H3 from "./H3";
+
 import { ITodo } from "./interfaces";
 import { NavBar } from "./NavBar";
 import TodoForn from "./TodoForn";
@@ -45,9 +46,13 @@ const App: FC = () => {
     console.log("sdasds", newTodo.length);
   };
   const todoDelete = (todo: ITodo, done: boolean) => {
+    console.log("delete", todo);
     if (done) {
       const newDoneList = doneList.filter((task) => task !== todo);
       setDoneList(newDoneList);
+    } else {
+      const newTodoList = todoList.filter((task) => task !== todo);
+      setTodoList(newTodoList);
     }
   };
 
@@ -58,7 +63,7 @@ const App: FC = () => {
       <div className="px-32">
         <H1 title=" Things to get done"></H1>
         <H3 title="Things to do"></H3>
-        {todoList.map((todo: ITodo, key: number) => (
+        {todoList.map((todo, key: number) => (
           <TodoRow
             key={key}
             todo={todo}

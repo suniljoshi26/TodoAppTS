@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox";
 import { ITodo } from "./interfaces";
 import { TiDeleteOutline } from "react-icons/ti";
 type TodoProps = {
-  todo: ITodo;
+  todo: any;
   key: number;
   done: boolean;
   onStatusChange: any;
