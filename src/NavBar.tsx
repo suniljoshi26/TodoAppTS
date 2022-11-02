@@ -1,6 +1,10 @@
-import React from "react";
-
-export const NavBar = ({ doneList, todoList }) => {
+import React, { FC } from "react";
+import { ITodo } from "./interfaces";
+type Nav = {
+  doneList: ITodo[];
+  todoList: ITodo[];
+};
+export const NavBar: FC<Nav> = ({ doneList, todoList }) => {
   return (
     <div>
       <nav className="bg-white px-2 sm:px-4  dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
