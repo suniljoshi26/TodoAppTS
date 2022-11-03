@@ -5,7 +5,7 @@ import TodoPage from "./TodoPage";
 const App = () => {
   return (
     <div className=" ">
-      <TodoPagez />
+      <TodoPage />
     </div>
   );
 };
