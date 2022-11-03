@@ -56,13 +56,23 @@ const TodoPage: FC = () => {
       setTodoList(newTodoList);
     }
   };
+  const handleRef = () => {
+    setDoneList([]);
+    setTodoList([]);
+  };
 
   return (
     <div className=" ">
       {" "}
       <NavBar todoList={todoList} doneList={doneList} />
       <div className=" px-10 sm:px-32">
-        <H1 title=" Things to get done"></H1>
+        {" "}
+        <div className="flex justify-end">
+          <Button className="sm:mt-32 mt-16" onClick={handleRef}>
+            refresh
+          </Button>
+        </div>
+        <H1 title=" Things to get done" />
         <H3 title="Things to do"></H3>
         {todoList.length === 0 && <Msg />}
         {todoList.map((todo, key: number) => (
